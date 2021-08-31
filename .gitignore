@@ -1,0 +1,14 @@
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage too
+*.out
+*.bench
+
+# Binaries
+bin
+
+# Common paths
+.vscode
+.idea
+.DS_Store
