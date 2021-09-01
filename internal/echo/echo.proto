@@ -1,0 +1,12 @@
+syntax = "proto3";
+package echo;
+option go_package = "github.com/golocron/rpcz/internal/echo";
+
+message EchoRequest {
+    string msg = 1;
+    int64 delay = 2;
+}
+
+message EchoResponse {
+    string msg = 1;
+}
