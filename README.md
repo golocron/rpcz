@@ -16,20 +16,22 @@ The library code uses only one external dependency, Protobuf.
 
 ## Examples
 
-Examples of a server running an RPC service, and a client that interacts with it is available in [this repository](https://github.com/golocron/rpcz_example).
+An example of a server running an RPC service and a client that interacts with it are available in [this repository](https://github.com/golocron/rpcz_example).
 
 
 ## In Other Languages
 
-The most obvious uses case is communication between services developed in Go. However, one of the main reasons for creating this library was the need to interact between software written in different languages.
+The most obvious use case is communication between services developed in Go. However, one of the main reasons for creating this library was the need to interact with software written in different languages.
 
 The simple protocol of RPCz and the use of Protobuf allow for such cross-language comminication. A server implementing the RPCz protocol must accept and correctly handle a request from a client implementing the protocol.
+
 
 | Language | Server | Client | Status |
 |--- | --- | --- | --- |
 | Go | ✅ | ✅ | Initial release |
 | Rust | ⚪ | ⚪ | Planned |
 | Zig | ⚪ | ⚪ | Planned |
+
 
 There are currently no plans on implementations for languages other than the listed above.
 
