@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	alpabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 	sz1k  = 1 << 10
 	sz4k  = 4 << 10
@@ -25,11 +25,11 @@ const (
 
 func randString(n int) string {
 	result := make([]byte, n)
-	abLen := int64(len(alpabet))
+	abLen := int64(len(alphabet))
 
 	for i := range result {
 		if pos := rand.Int63() % abLen; pos < abLen {
-			result[i] = alpabet[pos]
+			result[i] = alphabet[pos]
 		}
 	}
 

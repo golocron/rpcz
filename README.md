@@ -36,13 +36,25 @@ There are currently no plans on implementations for languages other than the lis
 
 ## Benchmarks
 
-The results below were obtained by running:
+The developer's machine has the following configuation:
+
+```bash
+goos: darwin
+goarch: amd64
+cpu: Intel(R) Core(TM) i9-9880H CPU @ 2.30GHz
+```
+
+
+The benchmark resutls have been obtained by running:
 
 ```bash
 go test -benchmem -benchtime 5s -bench=Benchmark -count 5 -timeout 600s -cpu=8 | tee results.bench
 
 benchstat results.bench
 ```
+
+
+And here are the results:
 
 ```text
 name                time/op
