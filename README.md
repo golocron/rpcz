@@ -16,7 +16,7 @@ The library code uses only one external dependency, Protobuf.
 
 ## Examples
 
-Examples of a server running an RPC service, and a client that interacts with it is available in [this repository](https://github.com/golocron/rpcz-example).
+Examples of a server running an RPC service, and a client that interacts with it is available in [this repository](https://github.com/golocron/rpcz_example).
 
 
 ## In Other Languages
