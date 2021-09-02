@@ -16,7 +16,7 @@ The library code uses only one external dependency, Protobuf.
 
 ## Examples
 
-Examples of a server running an RPC service, and a client that interacts with it is available in [this repository](https://github.com/golocron/rpcz-example).
+Examples of a server running an RPC service, and a client that interacts with it is available in [this repository](https://github.com/golocron/rpcz_example).
 
 
 ## In Other Languages
@@ -98,7 +98,7 @@ JSON_16K-8              29.0 ± 0%
 JSONTLS_4K-8            30.0 ± 0%
 ```
 
-You can also have a look <a target="_blank" href="https://github.com/cockroachdb/rpc-bench#results-2020-04-18">here</a> for benchmarks of other systems, such as gRPC and the `rpc` package from the standard library.
+You can also have a look <a target="_blank" href="https://github.com/cockroachdb/rpc-bench">here</a> for benchmarks of other systems, such as gRPC and the `rpc` package from the standard library.
 
 
 ## Open-Source, not Open-Contribution
