@@ -1,0 +1,22 @@
+syntax = "proto3";
+package wire;
+option go_package = "github.com/golocron/rpcz/internal/wire";
+
+message Request {
+    int32 kind = 1;
+    uint64 id = 2;
+    string service = 3;
+    string method = 4;
+    bytes data = 5;
+}
+
+message Response {
+    int32 kind = 1;
+    uint64 id = 2;
+    string service = 3;
+    string method = 4;
+    string error = 5;
+    bytes data = 6;
+}
+
+message InvalidRequest {}
