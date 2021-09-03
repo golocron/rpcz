@@ -305,7 +305,7 @@ func (s *Server) Start(ctx context.Context) error {
 			if err != nil {
 				nerr, ok := err.(net.Error)
 				if !ok || !nerr.Temporary() {
-					if s.isStoppingOrClosed() {
+					if s.isStopping() || s.isClosed() {
 						return nil
 					}
 
@@ -419,7 +419,7 @@ func (s *Server) preStart() error {
 		return err
 	}
 
-	if s.isStoppingOrClosed() {
+	if s.isStopping() || s.isClosed() {
 		return ErrSrvClosed
 	}
 
@@ -455,10 +455,6 @@ func (s *Server) isClosed() bool {
 	default:
 		return false
 	}
-}
-
-func (s *Server) isStoppingOrClosed() bool {
-	return s.isStopping() || s.isClosed()
 }
 
 func (s *Server) addConn(c *conn) {
