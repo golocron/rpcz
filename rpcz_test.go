@@ -529,41 +529,41 @@ func TestMarshalUnmarshal(t *testing.T) {
 
 type fakeRWC struct{}
 
-func (c *fakeRWC) Read(p []byte) (int, error) { return 0, nil }
+func (*fakeRWC) Read(p []byte) (int, error) { return 0, nil }
 
-func (c *fakeRWC) Write(p []byte) (int, error) { return 0, nil }
+func (*fakeRWC) Write(p []byte) (int, error) { return 0, nil }
 
-func (c *fakeRWC) Close() error { return nil }
+func (*fakeRWC) Close() error { return nil }
 
 type MockService struct{}
 
-func (_ *MockService) unexported() {}
+func (*MockService) unexported() {}
 
-func (_ *MockService) CtxAndNotPtr(_ context.Context, arg2, arg3 string) int { return 0 }
+func (*MockService) CtxAndNotPtr(_ context.Context, arg2, arg3 string) int { return 0 }
 
-func (_ *MockService) CtxUnsuablePtr(_ context.Context, arg2 *unsuableType, arg3 string) int {
+func (*MockService) CtxUnsuablePtr(_ context.Context, arg2 *unsuableType, arg3 string) int {
 	return 0
 }
 
-func (_ *MockService) CtxUsableArg2Arg3WrongReturn(_ context.Context, arg2 *UsableTypeArg, arg3 *UsableTypeRepl) int {
+func (*MockService) CtxUsableArg2Arg3WrongReturn(_ context.Context, arg2 *UsableTypeArg, arg3 *UsableTypeRepl) int {
 	return 0
 }
 
-func (_ *MockService) CtxUsableArg2NotPtr(_ context.Context, arg2 *UsableTypeArg, arg3 string) int {
+func (*MockService) CtxUsableArg2NotPtr(_ context.Context, arg2 *UsableTypeArg, arg3 string) int {
 	return 0
 }
 
-func (_ *MockService) CtxUsableArg2UnusablePtr(_ context.Context, arg2 *UsableTypeArg, arg3 *unsuableType) int {
+func (*MockService) CtxUsableArg2UnusablePtr(_ context.Context, arg2 *UsableTypeArg, arg3 *unsuableType) int {
 	return 0
 }
 
-func (_ *MockService) FourArgsAndReturn(arg1, arg2, arg3 string) int { return 0 }
+func (*MockService) FourArgsAndReturn(arg1, arg2, arg3 string) int { return 0 }
 
-func (_ *MockService) FourArgsNoReturn(arg1, arg2, arg3 string) {}
+func (*MockService) FourArgsNoReturn(arg1, arg2, arg3 string) {}
 
-func (_ *MockService) LessThan4Args(arg1, arg2 string) {}
+func (*MockService) LessThan4Args(arg1, arg2 string) {}
 
-func (_ *MockService) UsableMethod(ctx context.Context, arg2 *UsableTypeArg, arg3 *UsableTypeRepl) error {
+func (*MockService) UsableMethod(ctx context.Context, arg2 *UsableTypeArg, arg3 *UsableTypeRepl) error {
 	return nil
 }
 

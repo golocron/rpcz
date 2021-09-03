@@ -1,6 +1,6 @@
+// Package rpcz allows exposing and accessing methods of a service over network.
+//
 /*
-	Package rpcz allows exposing and accessing methods of a service over network.
-
 	This package supports communication over TCP, Unix sockets, and with TLS on top of it.
 	The default and recommended encoding is Protobuf, with JSON available as an alternative.
 	No user-defined encodings (aka codecs) are supported, nor it is planned.
@@ -27,7 +27,7 @@
 	is to be notified when shutdown has been requested to gracefully finish any ongoing operations.
 
 	At the moment, the context does not include any data, but it might be exteneded at a later point with useful information
-	such as a request trace identificator. Reminder: contextes MUST NOT be used for dependency injection.
+	such as a request trace identificator. Reminder: contexts MUST NOT be used for dependency injection.
 
 	The second argument represents a request to the method of a service. The third argument is passed in a pointer to a value
 	to which the method writes the response.
@@ -305,7 +305,7 @@ func (s *Server) Start(ctx context.Context) error {
 			if err != nil {
 				nerr, ok := err.(net.Error)
 				if !ok || !nerr.Temporary() {
-					if s.isStopping() || s.isClosed() {
+					if s.isStoppingOrClosed() {
 						return nil
 					}
 
@@ -419,7 +419,7 @@ func (s *Server) preStart() error {
 		return err
 	}
 
-	if s.isStopping() || s.isClosed() {
+	if s.isStoppingOrClosed() {
 		return ErrSrvClosed
 	}
 
@@ -455,6 +455,10 @@ func (s *Server) isClosed() bool {
 	default:
 		return false
 	}
+}
+
+func (s *Server) isStoppingOrClosed() bool {
+	return s.isStopping() || s.isClosed()
 }
 
 func (s *Server) addConn(c *conn) {

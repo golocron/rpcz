@@ -557,7 +557,7 @@ func (r *noBufReader) Buffered() int {
 
 // Peek returns nil and no error.
 //
-// Calls to Peek are usually preceeded by calling Buffered().
+// Calls to Peek are usually preceded by calling Buffered().
 // Since Buffered() always returns -1, this method must not be called.
 func (r *noBufReader) Peek(n int) ([]byte, error) {
 	return nil, nil
