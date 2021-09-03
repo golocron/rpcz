@@ -1,4 +1,4 @@
-// package echo shows a simple RPC service that can be served with rpcz.
+// Package echo shows a simple RPC service that can be served with rpcz.
 package echo
 
 import (
